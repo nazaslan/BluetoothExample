@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		DBACACE020D95E1200D1E58E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACDF20D95E1200D1E58E /* AppDelegate.swift */; };
 		DBACACE220D95E1200D1E58E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACE120D95E1200D1E58E /* ViewController.swift */; };
-		DBACACE520D95E1200D1E58E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBACACE320D95E1200D1E58E /* Main.storyboard */; };
 		DBACACE720D95E1400D1E58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBACACE620D95E1400D1E58E /* Assets.xcassets */; };
 		DBACACEA20D95E1400D1E58E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBACACE820D95E1400D1E58E /* LaunchScreen.storyboard */; };
+		DBACACF220D95E2E00D1E58E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBACACF120D95E2E00D1E58E /* ViewController.xib */; };
+		DBACACF420D95F0D00D1E58E /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACF320D95F0D00D1E58E /* DeviceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DBACACDC20D95E1200D1E58E /* BluetoothExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBACACDF20D95E1200D1E58E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBACACE120D95E1200D1E58E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DBACACE420D95E1200D1E58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBACACE620D95E1400D1E58E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBACACE920D95E1400D1E58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBACACEB20D95E1500D1E58E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBACACF120D95E2E00D1E58E /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		DBACACF320D95F0D00D1E58E /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 			children = (
 				DBACACDF20D95E1200D1E58E /* AppDelegate.swift */,
 				DBACACE120D95E1200D1E58E /* ViewController.swift */,
-				DBACACE320D95E1200D1E58E /* Main.storyboard */,
+				DBACACF120D95E2E00D1E58E /* ViewController.xib */,
+				DBACACF320D95F0D00D1E58E /* DeviceManager.swift */,
 				DBACACE620D95E1400D1E58E /* Assets.xcassets */,
 				DBACACE820D95E1400D1E58E /* LaunchScreen.storyboard */,
 				DBACACEB20D95E1500D1E58E /* Info.plist */,
@@ -123,8 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBACACEA20D95E1400D1E58E /* LaunchScreen.storyboard in Resources */,
+				DBACACF220D95E2E00D1E58E /* ViewController.xib in Resources */,
 				DBACACE720D95E1400D1E58E /* Assets.xcassets in Resources */,
-				DBACACE520D95E1200D1E58E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBACACE220D95E1200D1E58E /* ViewController.swift in Sources */,
+				DBACACF420D95F0D00D1E58E /* DeviceManager.swift in Sources */,
 				DBACACE020D95E1200D1E58E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DBACACE320D95E1200D1E58E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBACACE420D95E1200D1E58E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DBACACE820D95E1400D1E58E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

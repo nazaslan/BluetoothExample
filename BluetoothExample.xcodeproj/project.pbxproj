@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F15C1020D99F09006965E7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F15C0F20D99F09006965E7 /* Utilities.swift */; };
+		04F4D53820D9A54A006B1FC2 /* DeviceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D53720D9A54A006B1FC2 /* DeviceListVC.swift */; };
+		04F4D53B20D9A5C0006B1FC2 /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D53920D9A5C0006B1FC2 /* ServicesVC.swift */; };
+		04F4D53C20D9A5C0006B1FC2 /* ServicesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F4D53A20D9A5C0006B1FC2 /* ServicesVC.xib */; };
 		DBACACE020D95E1200D1E58E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACDF20D95E1200D1E58E /* AppDelegate.swift */; };
-		DBACACE220D95E1200D1E58E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACE120D95E1200D1E58E /* ViewController.swift */; };
 		DBACACE720D95E1400D1E58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBACACE620D95E1400D1E58E /* Assets.xcassets */; };
 		DBACACEA20D95E1400D1E58E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBACACE820D95E1400D1E58E /* LaunchScreen.storyboard */; };
-		DBACACF220D95E2E00D1E58E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBACACF120D95E2E00D1E58E /* ViewController.xib */; };
+		DBACACF220D95E2E00D1E58E /* DeviceListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBACACF120D95E2E00D1E58E /* DeviceListVC.xib */; };
 		DBACACF420D95F0D00D1E58E /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACF320D95F0D00D1E58E /* DeviceManager.swift */; };
+		DBACACF720DA41D400D1E58E /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACF520DA41D400D1E58E /* DeviceCell.swift */; };
+		DBACACF820DA41D400D1E58E /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBACACF620DA41D400D1E58E /* DeviceCell.xib */; };
+		DBACACFD20DA74EF00D1E58E /* CharacteristicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACACFB20DA74EF00D1E58E /* CharacteristicsVC.swift */; };
+		DBACACFE20DA74EF00D1E58E /* CharacteristicsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBACACFC20DA74EF00D1E58E /* CharacteristicsVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04F15C0F20D99F09006965E7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		04F4D53720D9A54A006B1FC2 /* DeviceListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListVC.swift; sourceTree = "<group>"; };
+		04F4D53920D9A5C0006B1FC2 /* ServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
+		04F4D53A20D9A5C0006B1FC2 /* ServicesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesVC.xib; sourceTree = "<group>"; };
 		DBACACDC20D95E1200D1E58E /* BluetoothExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBACACDF20D95E1200D1E58E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBACACE120D95E1200D1E58E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBACACE620D95E1400D1E58E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBACACE920D95E1400D1E58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBACACEB20D95E1500D1E58E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBACACF120D95E2E00D1E58E /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		DBACACF120D95E2E00D1E58E /* DeviceListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceListVC.xib; sourceTree = "<group>"; };
 		DBACACF320D95F0D00D1E58E /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		DBACACF520DA41D400D1E58E /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		DBACACF620DA41D400D1E58E /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
+		DBACACFB20DA74EF00D1E58E /* CharacteristicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsVC.swift; sourceTree = "<group>"; };
+		DBACACFC20DA74EF00D1E58E /* CharacteristicsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicsVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +71,37 @@
 			isa = PBXGroup;
 			children = (
 				DBACACDF20D95E1200D1E58E /* AppDelegate.swift */,
-				DBACACE120D95E1200D1E58E /* ViewController.swift */,
-				DBACACF120D95E2E00D1E58E /* ViewController.xib */,
-				DBACACF320D95F0D00D1E58E /* DeviceManager.swift */,
+				04F4D53720D9A54A006B1FC2 /* DeviceListVC.swift */,
+				DBACACF120D95E2E00D1E58E /* DeviceListVC.xib */,
+				04F4D53920D9A5C0006B1FC2 /* ServicesVC.swift */,
+				04F4D53A20D9A5C0006B1FC2 /* ServicesVC.xib */,
+				DBACACFB20DA74EF00D1E58E /* CharacteristicsVC.swift */,
+				DBACACFC20DA74EF00D1E58E /* CharacteristicsVC.xib */,
+				DBACACFA20DA4C2700D1E58E /* Helper */,
+				DBACACF920DA4C1F00D1E58E /* Cell */,
 				DBACACE620D95E1400D1E58E /* Assets.xcassets */,
 				DBACACE820D95E1400D1E58E /* LaunchScreen.storyboard */,
 				DBACACEB20D95E1500D1E58E /* Info.plist */,
 			);
 			path = BluetoothExample;
+			sourceTree = "<group>";
+		};
+		DBACACF920DA4C1F00D1E58E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DBACACF520DA41D400D1E58E /* DeviceCell.swift */,
+				DBACACF620DA41D400D1E58E /* DeviceCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DBACACFA20DA4C2700D1E58E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DBACACF320D95F0D00D1E58E /* DeviceManager.swift */,
+				04F15C0F20D99F09006965E7 /* Utilities.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +162,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F4D53C20D9A5C0006B1FC2 /* ServicesVC.xib in Resources */,
 				DBACACEA20D95E1400D1E58E /* LaunchScreen.storyboard in Resources */,
-				DBACACF220D95E2E00D1E58E /* ViewController.xib in Resources */,
+				DBACACF220D95E2E00D1E58E /* DeviceListVC.xib in Resources */,
+				DBACACFE20DA74EF00D1E58E /* CharacteristicsVC.xib in Resources */,
 				DBACACE720D95E1400D1E58E /* Assets.xcassets in Resources */,
+				DBACACF820DA41D400D1E58E /* DeviceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBACACE220D95E1200D1E58E /* ViewController.swift in Sources */,
+				04F15C1020D99F09006965E7 /* Utilities.swift in Sources */,
+				04F4D53B20D9A5C0006B1FC2 /* ServicesVC.swift in Sources */,
 				DBACACF420D95F0D00D1E58E /* DeviceManager.swift in Sources */,
+				04F4D53820D9A54A006B1FC2 /* DeviceListVC.swift in Sources */,
 				DBACACE020D95E1200D1E58E /* AppDelegate.swift in Sources */,
+				DBACACFD20DA74EF00D1E58E /* CharacteristicsVC.swift in Sources */,
+				DBACACF720DA41D400D1E58E /* DeviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,17 +320,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN57WAKKXJ;
 				INFOPLIST_FILE = BluetoothExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.identitat.BluetoothExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -294,17 +341,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN57WAKKXJ;
 				INFOPLIST_FILE = BluetoothExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.identitat.BluetoothExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,26 +10,34 @@ import Foundation
 import CoreBluetooth
 
 protocol DeviceManagerDelegate: class {
-  func didUpdateDeviceList(items: [CBPeripheral])
+  func didUpdateDeviceList(items: [[String: Any]])
+  func didUpdateServicesList(services: [CBService])
   func didConnectToDevice()
   func didDisconnectFromDevice()
-  func didUpdateRSSIValue(value: String)
 }
 
-//let sharedDevice = DeviceManager()
+extension DeviceManagerDelegate {
+  func didUpdateDeviceList(items: [[String: Any]]) {
+    
+  }
+  
+  func didUpdateServicesList(services: [CBService]) {
+    
+  }
+}
 
 class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   
   var manager: CBCentralManager!
   var currentDevice: CBPeripheral?
+  var currentDeviceServices = [CBService]()
   weak var delegate: DeviceManagerDelegate?
   
   let scanningDelay = 5.0
-  var items = [String: CBPeripheral]()
+  var items = [String: [String: Any]]()
   
   private static var sharedDeviceManager: DeviceManager = {
     let deviceManager = DeviceManager()
-    
     return deviceManager
   }()
   
@@ -65,7 +73,8 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   }
   
   func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-    didReadPeripheral(peripheral, rssi: RSSI)
+    let signalStrength = getStatusStringsFromRSSI(rssi: RSSI)
+    didReadPeripheral(peripheral, rssi: signalStrength)
   }
   
   func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -78,6 +87,7 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   
   func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
     currentDevice = nil
+    currentDeviceServices = [CBService]()
     delegate?.didDisconnectFromDevice()
   }
   
@@ -87,35 +97,15 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
   func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
     guard let services = peripheral.services else { return }
-    for service in services {
-      peripheral.discoverCharacteristics(nil, for: service)
-      print("Service \(service)")
-    }
-  }
-  
-  func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-    guard let characteristics = service.characteristics else { return }
-    for characteristic in characteristics {
-      if characteristic.properties.contains(CBCharacteristicProperties.read) {
-        peripheral.readValue(for: characteristic)
-      }
-    }
-  }
-  
-  func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-    if let e = error {
-      print("ERROR didUpdateValue \(e)")
-      return
-    }
-    guard let data = characteristic.value else { return }
-    print(data)
+    currentDeviceServices = services
+    delegate?.didUpdateServicesList(services: services)
   }
   
   // MARK: - CBPeripheralDelegate
   
   func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
-    didReadPeripheral(peripheral, rssi: RSSI)
-    delegate?.didUpdateRSSIValue(value: getStatusStringsFromRSSI(rssi: RSSI))
+    let signalStrength = getStatusStringsFromRSSI(rssi: RSSI)
+    didReadPeripheral(peripheral, rssi: signalStrength)
     delay(scanningDelay) {
       peripheral.readRSSI()
     }
@@ -123,9 +113,10 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   
   // MARK: - Helpers
   
-  func didReadPeripheral(_ peripheral: CBPeripheral, rssi: NSNumber) {
+  func didReadPeripheral(_ peripheral: CBPeripheral, rssi: String) {
     if let name = peripheral.name {
-      items[name] = peripheral
+      items[name] = ["name" : peripheral,
+                     "rssi": rssi]
     }
     delegate?.didUpdateDeviceList(items: Array(items.values))
   }
@@ -153,16 +144,26 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
   }
   
-  func connectToDevice(device: CBPeripheral) {
-    currentDevice = device
-    currentDevice?.delegate = self
+  func stopScan() {
     manager.stopScan()
-    manager.connect(device, options: nil)
+  }
+  
+  func connectToDevice(device: CBPeripheral) {
+      currentDevice = device
+      currentDevice?.delegate = self
+      manager.stopScan()
+      manager.connect(device, options: nil)
   }
   
   func disconnectFromDevice() {
     if let device = currentDevice {
       manager.cancelPeripheralConnection(device)
+    }
+  }
+  
+  func discoverCharacteristics(service: CBService) {
+    if let device = currentDevice {
+      device.discoverCharacteristics(nil, for: service)
     }
   }
   

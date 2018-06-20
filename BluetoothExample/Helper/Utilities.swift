@@ -34,7 +34,6 @@ extension Data {
   }  
 }
 
-public let kStandardServiceUUIDDeviceInformation = CBUUID(string: "180A")
 extension CBUUID {
   public var name : String {
     if self == kStandardServiceUUIDDeviceInformation {

@@ -9,6 +9,9 @@
 import Foundation
 import CoreBluetooth
 
+public let suiffDeviceName = "Suiff"
+public let kStandardServiceUUIDDeviceInformation = CBUUID(string: "180A")
+
 protocol DeviceManagerDelegate: class {
   func didUpdateDeviceList(items: [[String: Any]])
   func didUpdateServicesList(services: [CBService])
@@ -17,13 +20,8 @@ protocol DeviceManagerDelegate: class {
 }
 
 extension DeviceManagerDelegate {
-  func didUpdateDeviceList(items: [[String: Any]]) {
-    
-  }
-  
-  func didUpdateServicesList(services: [CBService]) {
-    
-  }
+  func didUpdateDeviceList(items: [[String: Any]]) {}
+  func didUpdateServicesList(services: [CBService]) {}
 }
 
 class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -94,11 +92,35 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
     // handle
   }
-    
+  
   func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
     guard let services = peripheral.services else { return }
-    currentDeviceServices = services
-    delegate?.didUpdateServicesList(services: services)
+    let filteredServices = services.filter({$0.uuid == kStandardServiceUUIDDeviceInformation})
+    currentDeviceServices = filteredServices
+    delegate?.didUpdateServicesList(services: filteredServices)
+    for service in filteredServices {
+      peripheral.discoverCharacteristics(nil, for: service)
+      print("Service \(service)")
+    }
+  }
+  
+  func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+    guard let characteristics = service.characteristics else { return }
+    for characteristic in characteristics {
+      print("Characteristics \(characteristic)")
+      if characteristic.properties.contains(CBCharacteristicProperties.read) {
+        peripheral.readValue(for: characteristic)
+      }
+    }
+  }
+  
+  func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+    if let e = error {
+      print("ERROR didUpdateValue \(e)")
+      return
+    }
+    guard let data = characteristic.value else { return }
+    print(data.hexToStr())
   }
   
   // MARK: - CBPeripheralDelegate
@@ -114,7 +136,7 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   // MARK: - Helpers
   
   func didReadPeripheral(_ peripheral: CBPeripheral, rssi: String) {
-    if let name = peripheral.name {
+    if let name = peripheral.name, name == suiffDeviceName {
       items[name] = ["name" : peripheral,
                      "rssi": rssi]
     }
@@ -149,10 +171,10 @@ class DeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
   }
   
   func connectToDevice(device: CBPeripheral) {
-      currentDevice = device
-      currentDevice?.delegate = self
-      manager.stopScan()
-      manager.connect(device, options: nil)
+    currentDevice = device
+    currentDevice?.delegate = self
+    manager.stopScan()
+    manager.connect(device, options: nil)
   }
   
   func disconnectFromDevice() {
